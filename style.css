@@ -1,0 +1,209 @@
+/* Variáveis de Cores - Paleta Azul Bebê */
+:root {
+    --azul-bebe-claro: #EBF7FD;
+    --azul-bebe-principal: #A2D9F7;
+    --azul-bebe-medio: #6EC1E4;
+    --azul-escuro-texto: #23485E;
+    --texto-suave: #4A6B7C;
+    --branco: #FFFFFF;
+}
+
+/* Reset e Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--azul-bebe-claro) 0%, #D4EFFC 100%);
+    color: var(--azul-escuro-texto);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Cabeçalho (Hero Section) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: radial-gradient(circle at top, #FFFFFF 0%, var(--azul-bebe-principal) 100%);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 750px;
+    z-index: 2;
+}
+
+.subtitle {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--azul-escuro-texto);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(35, 72, 94, 0.05);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: var(--azul-escuro-texto);
+    margin-bottom: 20px;
+    min-height: 4.2rem; /* Evita pulo na tela durante a digitação */
+}
+
+/* Cursor piscando no título */
+h1::after {
+    content: '|';
+    animation: piscar 0.8s infinite;
+    color: var(--azul-bebe-medio);
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: var(--texto-suave);
+    margin-bottom: 35px;
+}
+
+.btn-explorar {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--azul-escuro-texto);
+    color: var(--branco);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(35, 72, 94, 0.2);
+}
+
+.btn-explorar:hover {
+    background-color: var(--azul-bebe-medio);
+    color: var(--azul-escuro-texto);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(110, 193, 228, 0.4);
+}
+
+/* Container das Seções */
+.timeline-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+}
+
+/* Linha vertical decorativa conectando os cards */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    bottom: 80px;
+    width: 4px;
+    background-color: var(--azul-bebe-principal);
+    transform: translateX(-50%);
+    z-index: 0;
+    border-radius: 4px;
+}
+
+/* Estilo dos Cards (Seções) */
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--azul-bebe-principal);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 35px rgba(110, 193, 228, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    
+    /* Estado inicial antes da animação JS */
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Classe adicionada pelo JavaScript ao rolar a página */
+.card.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 45px rgba(110, 193, 228, 0.35);
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--azul-bebe-principal);
+    color: var(--azul-escuro-texto);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--azul-escuro-texto);
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--texto-suave);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--azul-bebe-principal);
+    color: var(--azul-escuro-texto);
+    font-weight: 500;
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.3rem;
+        min-height: 5.5rem;
+    }
+
+    .card {
+        padding: 28px 22px;
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+    }
+}
